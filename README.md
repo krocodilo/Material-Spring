@@ -40,3 +40,11 @@ To apply the changes: `Ctrl+Shift+R` to reload Mailspring
 	- .find-in-thread
 	- date label when you grab the scroll handle in the threadlist
    - the quick actions in the thread-list (they could "light up" when the mouse hovers, or something similar)
+
+
+## Screenshots
+
+![*0*](/screenshot/0.png)
+![*2*](/screenshot/2.png)
+![*3*](/screenshot/3.png)
+![*4*](/screenshot/4.png)
