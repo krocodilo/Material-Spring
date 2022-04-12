@@ -42,11 +42,330 @@ img.content-light {
   -webkit-filter: contrast(110%) brightness(85%);
 }
 
-#message-list .message-item-wrap .message-item-white-wrap {
-  box-shadow: 0 0 0.5px rgba(255, 255, 255, 0.28),
-    0 1px 1.5px rgba(255, 255, 255, 0.08);
-}
-
 .thread-list .list-item:not(.unread):not(.selected):not(.focused) {
   color: #aaa;
+}
+
+
+
+//====================================================
+//  Toolbar
+//====================================================
+
+// Search bar to max width and not blurry
+.thread-search-bar {
+  box-shadow: none;
+  width: 100%;
+  border-radius: @search-bar-border-radius;
+}
+
+// shadow bellow Toolbar
+.sheet-toolbar {
+  box-shadow: 0 0 @toolbar-shadow-blur @toolbar-shadow-color;
+}
+
+
+
+//====================================================
+//  Sidebar & Account Switcher
+//====================================================
+
+// Change default account sidebar color from default gray to white
+.column-RootSidebar, 
+.account-sidebar {
+  //background-color: @accent-primary;
+  background-image: linear-gradient(to bottom right, @accent-secondary, @accent-primary 60%);
+  box-shadow: none !important;
+}
+
+// Account sidebar headings overrides
+.account-sidebar .heading {
+  font-size: 12px;
+  //text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 14px;
+  padding-left: @padding-headers-left !important;
+  margin-bottom: 8px;
+  margin-right: 3px;
+}
+
+// "Remove" margin above first heading
+.account-sidebar .heading:nth-of-type(1) {
+  margin-top: @margin-above-first-header;
+}
+
+// Account sidebar selected label overrides
+.account-sidebar {
+  // Change label color and font weight
+  .item.selected {
+    background: #FFFFFF66;
+    border-radius: @sidebar-selected-border-radius;
+    color: @selected-item-text-color;
+    font-weight: bold;
+  }
+  .item {
+    cursor: pointer !important;
+    margin-left: 4px;
+    padding-left: 13px;
+  }
+}
+
+// Space on the left inside the sidebar (previous to the arrows)
+.account-sidebar .scroll-region-content {
+  padding-left: 18px;
+}
+
+//  offset the margin on scrollbar in sidebar since it's position: relative
+.account-sidebar .scrollbar-track {
+  margin-right: 3px;
+}
+
+.account-sidebar-sections {
+  margin-right: 30px;
+}
+
+.account-switcher {
+  margin-right: 15px !important;
+}
+
+
+// Treeview vertical lines in nested labels
+.item-children{
+  padding-left: 10px !important;
+
+  .item-container {
+    border-left: 1px solid @text-color-very-subtle !important;
+  }
+
+}
+
+
+//====================================================
+//  Sidebar Count Badges
+//====================================================
+
+// Sidebar unread email count color overrides
+.outline-view .item .item-count-box,
+.outline-view .item .item-count-box.alt-count {
+  background: transparent;
+  color: @text-color-subtle;
+  border-radius: @count-badge-border-radius;
+  box-shadow: 0 1px 0 @count-badge-color, 0 -1px 0 @count-badge-color,
+    1px 0 0 @count-badge-color, -1px 0 0 @count-badge-color;
+
+}
+
+// When selected, invert
+.outline-view .item.selected .item-count-box,
+.outline-view .item.selected .item-count-box.alt-count {
+  color: @accent-primary;
+  font-weight: bold;
+  box-shadow: 0 1px 0 @count-badge-color-sel, 0 -1px 0 @count-badge-color-sel,
+    1px 0 0 @count-badge-color-sel, -1px 0 0 @count-badge-color-sel;
+}
+
+
+
+//====================================================
+//  Scrollbars & Resize Handles
+//====================================================
+
+.scrollbar-track {
+  background-color: transparent;
+  width: 11px;
+  border-left: none;
+}
+
+.flexbox-handle-horizontal {
+  border-right: none;
+  box-shadow: none;
+  // remove diveder between sidebar and selected item in threadlist
+  div {
+    box-shadow: none;
+  }
+}
+
+// Position scrollbar on message list on divider
+#message-list .scrollbar-track {
+  margin-right: -2em;
+}
+
+.scrollbar-track .scrollbar-handle {
+  background-color: @scrollbar-handle-color !important;
+  border: 3px solid @scrollbar-handle-color;
+  border-radius: @scrollbar-handle-corner-radius !important;
+  cursor: pointer !important;
+}
+
+.scrollbar-track.dragging .scrollbar-handle {
+  background-color: @scrollbar-handle-color !important;
+  border: 3px solid @scrollbar-handle-color;
+}
+
+
+
+//====================================================
+//  Thread List
+//====================================================
+
+.list-container .scroll-region-content-inner {
+  margin-top: @threadlist-padding-top;
+}
+
+// Removing overlap of scrollbar and handle
+.column-ThreadList .flexbox-handle-horizontal.flexbox-handle-right {
+  right: -8px;
+  padding: 0;
+}
+
+// Thread list overrides
+.column-ThreadList,
+.list-container .list-item {
+  cursor: pointer !important;
+  border: none !important;
+  background: @background-primary;
+}
+
+// Force hover pointer over actions (snooze, trash, archive)
+.action:hover {
+  cursor: pointer !important;
+}
+
+// Thread list item behavior on hover
+.list-container .list-item:hover {
+  background: lighten(@background-primary, 5%);
+}
+
+// Dont change background if item is selected
+.list-container .list-item.focused:hover {
+  background: @accent-primary;
+}
+
+
+
+//====================================================
+//  Message List
+//====================================================
+
+#message-list .scroll-region-content-inner {
+  padding-top: @messagelist-padding-top !important;
+}
+
+#message-list .scroll-region-content-inner {
+  padding: @message-list-general-padding;
+  padding-bottom: @message-list-bottom-padding !important;
+}
+
+// Theme message list composer footer
+#message-list .footer-reply-area-wrap {
+  border-top: none;
+  background: @accent-primary;
+  cursor: pointer !important;
+  margin-top: 12px !important;
+  border-radius: @footer-reply-wrap-border-radius !important;
+  box-shadow: 0 0 @message-wrap-shadow-blur @toolbar-shadow-color;
+}
+
+// Draft message background color
+#message-list .message-item-wrap .message-item-white-wrap.composer-outer-wrap,
+#message-list
+  .message-item-wrap
+  .message-item-white-wrap.composer-outer-wrap
+  .composer-action-bar-wrap {
+  background-color: @accent-primary;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+#message-list .message-item-wrap .message-item-white-wrap.composer-outer-wrap {
+  border: 1px solid transparent;
+}
+
+#message-list
+  .message-item-wrap
+  .message-item-white-wrap.composer-outer-wrap
+  .RichEditor-toolbar
+  .inner {
+  background-color: @accent-primary;
+}
+
+// Draft message background color on focus
+#message-list .message-item-wrap .message-item-white-wrap.composer-outer-wrap.focused {
+  background-color: @background-primary;
+  box-shadow: none;
+  border: 1px solid @border-color-primary;
+  border-radius: 0;
+}
+#message-list
+  .message-item-wrap
+  .message-item-white-wrap.composer-outer-wrap.focused
+  .RichEditor-toolbar
+  .inner {
+  background: @background-primary;
+}
+
+// Draft message background action bar theme on focus
+#message-list
+  .message-item-wrap
+  .message-item-white-wrap.composer-outer-wrap.focused
+  .composer-action-bar-wrap {
+  background-color: @background-primary;
+}
+
+// Message item border
+.message-item-white-wrap {
+  background: white;
+  border: @message-wrap-border-size solid @message-wrap-border-color !important;
+
+  border-radius: @message-wrap-border-radius !important;
+  
+  box-shadow: 0 0 @message-wrap-shadow-blur @toolbar-shadow-color !important;
+}
+
+.message-iframe-container
+{
+  background: @message-content-background !important;
+}
+
+.composer-action-bar-wrap,
+.signature-button-dropdown .button-dropdown .only-item {
+  background-color: transparent !important;
+}
+
+// To see the enabled buttons on the draft area when it's not in focus
+.btn-enabled {
+  color: @text-color-link;
+}
+
+// "To" field in the draft area
+.token {
+  background: darken(@background-primary, 10%);
+}
+
+
+
+
+
+//====================================================
+//  Notifications
+//====================================================
+
+.notifications-sticky .notifications-sticky-item {
+  background-color: @accent-primary;    //test this
+}
+
+
+
+//====================================================
+//  Translate Message Header
+//====================================================
+
+/*.translate-message-header {
+  background-color: 
+  color: rgba(73, 176, 250, 0.92);  //this is the default color
+}*/
+
+.translate-message-header .message,
+.translate-message-header .actions .action {
+    border-color: rgba(73, 176, 250, 0.92) !important;
 }

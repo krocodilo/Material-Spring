@@ -1,8 +1,69 @@
-/*
-Include the standard variables from Mailspring's base theme:
-https://github.com/Foundry376/Mailspring/blob/master/app/static/style/base/ui-variables.less
-*/
+/* https://github.com/Foundry376/Mailspring/blob/master/app/static/style/base/ui-variables.less */
 @import "base/ui-variables";
+
+
+//
+////
+//////
+//////// If you want to make any changes, remember to leave the default values as a comment
+///////
+//////
+/////
+////
+///
+//
+//====================================================
+//  Custom Variables
+//
+
+
+// Toolbar (bar on top)
+@toolbar-shadow-blur: 15px;
+@toolbar-shadow-color: darken(@background-primary, 10%);
+@search-bar-border-radius: 5px;
+@margin-below-toolbar: 14px;
+
+// Scrollbars
+@scrollbar-handle-color: @text-color-very-subtle;
+@scrollbar-handle-corner-radius: 10px;
+
+// Account Sidebar
+@selected-item-text-color: @accent-primary;
+@sidebar-selected-border-radius: 20px;
+@count-badge-border-radius: 1px;
+@count-badge-color: fadeout(@text-color-subtle, 60%);
+@count-badge-color-sel: fadeout(@accent-primary, 60%);
+@padding-headers-left: 0px;
+@margin-above-headers: 14px;
+@margin-above-first-header: @margin-above-headers; //@margin-below-toolbar;
+
+// Thread List
+@threadlist-padding-top: 0px; //@margin-below-toolbar;
+
+// Message List area
+@messagelist-padding-top: 6px;	//@margin-below-toolbar;
+@message-list-general-padding: 10px;
+@message-list-bottom-padding: 20%;	//@message-list-general-padding
+@message-wrap-border-radius:  15px;
+@message-wrap-border-size: 2px;
+@message-wrap-border-color: @accent-primary;
+@message-wrap-shadow-blur: 0px;
+@footer-reply-wrap-border-radius:  10px;
+@message-content-background: transparent; //white;
+
+
+
+
+
+
+//====================================================
+//  Base Variables
+//
+
+@accent-primary: #e52f50;		//pale red
+@accent-secondary: #e12a6d;		//pink
+
+@accent-primary-dark: @accent-primary; //darken(@accent-primary, 10%);
 
 @gray-base: #ffffff;
 @gray-darker: darken(@gray-base, 13.5%);
@@ -12,17 +73,15 @@ https://github.com/Foundry376/Mailspring/blob/master/app/static/style/base/ui-va
 @gray-lighter: darken(@gray-base, 92.5%);
 @white: #0a0a0a;
 
-@accent-primary: #58b660;
-@accent-primary-dark: darken(@accent-primary, 10%);
 
-@background-primary: #212121;
-@background-off-primary: #212121;
-@background-secondary: #121212;
-@background-tertiary: #6d7987;
+@background-primary: #404040;	//#212121
+@background-off-primary: @background-primary;	//#212121
+@background-secondary: @background-primary; //#121212;
+@background-tertiary: @background-primary;
 
 @border-color-primary: lighten(@background-primary, 10%);
-@border-color-secondary: lighten(@background-secondary, 10%);
-@border-color-tertiary: lighten(@background-tertiary, 10%);
+@border-color-secondary: @background-primary; //lighten(@background-secondary, 10%);
+@border-color-tertiary: @background-primary; //lighten(@background-tertiary, 10%);
 @border-color-divider: @border-color-secondary;
 
 @text-color: #eee;
@@ -33,20 +92,20 @@ https://github.com/Foundry376/Mailspring/blob/master/app/static/style/base/ui-va
 @text-color-inverse-very-subtle: fadeout(@text-color-inverse, 50%);
 @text-color-heading: #fff;
 
-@text-color-link: @accent-primary;
-@text-color-link-hover: @accent-primary-dark;
-@text-color-link-active: @accent-primary-dark;
+@text-color-link: lighten(@accent-primary, 10%);
+@text-color-link-hover: darken(@text-color-link, 10%);
+@text-color-link-active: @text-color-link-hover;
 
 @btn-default-bg-color: lighten(@background-primary, 5%);
 @dropdown-default-bg-color: #404040;
 
-@input-bg: #2e2e2e;
+@input-bg: darken(@background-primary, 8%);
 @input-border: @border-color-divider;
 
-@list-bg: #333;
-@list-border: #383838;
+@list-bg: @background-primary; //#333;
+@list-border: @background-secondary;
 @list-selected-color: @text-color-inverse;
 @list-focused-color: @text-color;
 
-@toolbar-background-color: #121212;
-@panel-background-color: #121212;
+@toolbar-background-color: @background-secondary;
+@panel-background-color: @background-secondary;

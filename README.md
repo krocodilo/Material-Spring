@@ -1,61 +1,42 @@
-# Mailspring Theme Starter
+# Material Spring Theme
 
-The Mailspring Theme Starter is a basic starting point for creating a theme for
-the [Mailspring](http://www.getmailspring.com/) email client.
+This is a material design theme for the [Mailspring](http://www.getmailspring.com/) email client.
 
-<img src="https://raw.githubusercontent.com/Foundry376/Mailspring-Theme-Starter/master/screenshot/custom-theme.png" />
+![*Screenshot*](/screenshot/1.png)
 
-## Getting Started
+- I have only tested it on Windows, which has the same accent color as I have in my Mailspring theme.
 
-Creating a new theme in Mailspring is easy! Here's how you can do it.
 
-1. Fork this repo or download the code. Add a name, display name, title, and
-   description for your theme to `package.json`, and change the directory name
-   to match.
+## How to install
 
-2. Open Mailspring  and install the theme by going to `Mailspring > Install New Theme...`
-   and selecting the directory.
+From the Toolbar Menu icon in the top right corner, select `Install Theme...` and then
+select the folder of this theme.
 
-3. Choose `Developer > Run With Debug Flags` for easier debugging.
 
-4. Now, you can start playing with the theme! It's installed in
-   `~/Library/Application Support/Mailspring/packages/THEME_NAME` (on macOS), so
-   open it from there. Most of Mailspring's React components are derived from
-   the core variables defined in `ui-variables.less`, and any changes you make
-   there will override the defaults for Mailspring. You can also add more LESS
-   files in `styles` (ideally, separated into logical components like
-   `thread-list.less`) to make your own specific changes. To reload the theme,
-   just open the console (`Developer > Toggle Developer Tools`) and type
+## How to Edit
 
-   ```
-   AppEnv.themes.setActiveTheme('ui-light');
-   AppEnv.themes.setActiveTheme('your-theme-name');
-   ```
+This theme is fairly easy to edit. You can simply change the values of the
+variables present in [ui-variables.less](/styles/ui-variables.less).
 
-5. Once you're happy with your theme, check how it looks in the theme picker
-   (`Mailspring > Change Theme...`). We use your UI variables to pull the
-   colors, but if you want to add your own selections to the color palette,
-   create a `theme-colors.less` file that includes any of the variables that you
-   want to change, and they'll only affect the theme preview. Here are the
-   variables, on the left, with the part of the theme preview that they match:
+If you want more control or if you want to improve on this theme, the [index.less](/styles/index.less)
+is where you can change the CSS of Mailspring.
+To make this task easier, you can `Ctrl+Shift+I` to toggle the developer tools and inspect the elements
+like in a browser.
 
-   ```
-   @background-secondary:     BACKGROUND_COLOR
-   @text-color:               TEXT_COLOR, FIRST_SWATCH_COLOR
-   @component-active-color:   MIDDLE_SWATCH_COLOR
-   @toolbar-background-color: LAST_SWATCH_COLOR
-   @panel-background-color:   STRIP_COLOR
-   ```
+To apply the changes: `Ctrl+Shift+R` to reload Mailspring
 
-## Structure
 
-```
-.
-├── styles                 # All stylesheets
-|   ├── index.less             # Main LESS file to import your stylesheets
-│   ├── ui-variables.less  # UI variables that override N1's defaults
-│   ├── theme-colors.less  # Theme colors for theme preview (optional)
-├── package.json           # Metadata about the theme
-├── LICENSE.md             # License with usage rights
-└── README.md              # Info about your theme and how to use it
-```
+## To-Do
+
+- set the pointer cursor on every clickable element
+- message draft enabled options color (is the same as the accent-color, which is unnoticeable when the background of the message draft area is the same - when it's unfocused)
+- treeview lines for every label that doesn't have an arrow (in the account sidebar)
+- fix the background of html messages (if they have transparent background and a text color that is close to the @backround-primary, it will be hard to read)
+	- I already have @message-content-background to set the background color of the message, but there is also 
+   - I got the email-frame.less file from one of the default themes, but I have yet to see it working.
+- I haven't done anything to:
+	- the Participant's sidebar
+	- notifitication area
+	- .find-in-thread
+	- date label when you grab the scroll handle in the threadlist
+   - the quick actions in the thread-list (they could "light up" when the mouse hovers, or something similar)
