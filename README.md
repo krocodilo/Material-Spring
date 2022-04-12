@@ -32,7 +32,7 @@ To apply the changes: `Ctrl+Shift+R` to reload Mailspring
 - message draft enabled options color (is the same as the accent-color, which is unnoticeable when the background of the message draft area is the same - when it's unfocused)
 - treeview lines for every label that doesn't have an arrow (in the account sidebar)
 - fix the background of html messages (if they have transparent background and a text color that is close to the @backround-primary, it will be hard to read)
-	- I already have @message-content-background to set the background color of the message, but there is also 
+	- I already have @message-content-background to set the background color of the message
    - I got the email-frame.less file from one of the default themes, but I have yet to see it working.
 - I haven't done anything to:
 	- the Participant's sidebar
